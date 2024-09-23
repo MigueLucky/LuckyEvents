@@ -2,3 +2,5 @@ Imagenes
 https://www.freepik.es/
 
 jQuery 3.7.1
+
+RECORDAR BUG DE INDEX F5

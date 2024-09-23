@@ -8,5 +8,6 @@
     <header>
         <h2>LuckyEvents</h2>
     </header>
+    <script src="../assets/js/header.js"></script>
 </body>
 </html>
