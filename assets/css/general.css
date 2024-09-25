@@ -30,6 +30,12 @@ footer{
     flex-direction: column;
     align-items: center;
 }
+input{
+    padding: 5px;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: #EEFFFF;
+}
 .boton{
     background-color: #3D9999;
     margin: 5%;
@@ -37,4 +43,10 @@ footer{
     text-align: center;
     border-radius: 20px;
     cursor: pointer;
+}
+.volverAtras{
+    cursor: pointer;
+    text-align: left;
+    width: fit-content;
+    margin: 10px;
 }
