@@ -12,11 +12,23 @@ $(function(){
 
         $("main").append("<p>Tus planes están en camino... ¡Esperamos que estés listo!</p>");
         $("main").append("<p class='volverAtras'>↩Volver atras</p>");
-        $("main").append("<input type='email' placeholder='Correo electrónico'>");
-        $("main").append("<input type='password' placeholder='Contraseña'>");
+        $("main").append("<input class='inputEmail' type='email' placeholder='Correo electrónico'>");
+        $("main").append("<input class='inputContrasena' type='password' placeholder='Contraseña'>");
+        $("main").append("<p color: red;' class='mensajeError'></p>");
         $("main").append("<p class='boton botonIniciarSesion'>Enviar</p>");
 
+        $(".botonIniciarSesion").off().on("click", function(){
+            let email = $(".inputEmail").val();
+            let contrasena = $(".inputContrasena").val();
 
+            if(!email){
+
+            }
+            if(!contrasena){
+
+            }
+
+        })
 
         posicionElementos()
     })
@@ -26,12 +38,29 @@ $(function(){
 
         $("main").append("<p>Comienza a crear y compartir tus mejores planes.</p>");
         $("main").append("<p class='volverAtras'>↩Volver atras</p>");
-        $("main").append("<input type='text' placeholder='Nombre'>");
-        $("main").append("<input type='email' placeholder='Correo electrónico'>");
-        $("main").append("<input type='password' placeholder='Contraseña'>");
+        $("main").append("<input class='inputNombre' type='text' placeholder='Nombre'>");
+        $("main").append("<input class='inputEmail' type='email' placeholder='Correo electrónico'>");
+        $("main").append("<input class='inputContrasena' type='password' placeholder='Contraseña'>");
+        $("main").append("<p color: red;' class='mensajeError'></p>");
         $("main").append("<p class='boton botonRegistrarse'>Enviar</p>")
 
-        
+        $(".botonRegistrarse").off().on("click", function(){
+            let nombre = $(".inputNombre").val();
+            let email = $(".inputEmail").val();
+            let contrasena = $(".inputContrasena").val();
+            let textoError = $("Por favor coloca ");
+
+            if(!nombre){
+                textoError = textoError + "un nombre "
+            }
+            if(!email){
+                textoError = textoError + "un email "
+            }
+            if(!contrasena){
+                textoError = textoError + "una contraseña "
+            }
+
+        })
 
         posicionElementos()
     })
@@ -77,8 +106,14 @@ $(function(){
         let altoBody = $('body').height();
         let anchoBody = $('body').width();
         
+        let altoHeader = $('header').height();
+        let altoFooter = $('footer').height();
+
+        let altoCentro = ((altoBody-altoHeader-altoFooter)/2);
+
         let altoMain = $('main').height();
         let anchoMain = $('main').width();
+
         let anchoRecuContra = $("main > p:last-of-type").width();
 
         $("main").css("top", (altoBody/2 - altoMain/2));
@@ -86,18 +121,20 @@ $(function(){
         $("main > p:last-of-type").css("left", (anchoMain/2 - anchoRecuContra/2))
 
         $(".esquinaIzq div").css({
-            "border-left": (anchoBody/2) + "px solid transparent",
-            "border-bottom": (altoBody/2) + "px solid #EEFFFF"
+            "border-left": ((anchoBody/2)+10) + "px solid transparent",
+            "border-bottom": (altoCentro+10) + "px solid #EEFFFF",
+            "bottom": (altoCentro+10) + "px"
         })
 
         $(".esquinaDer").css("left", anchoBody/2)
         $(".esquinaDer div").css({
-            "border-right": (anchoBody/2) + "px solid transparent",
-            "border-top": (altoBody/2) + "px solid #EEFFFF"
+            "border-right":((anchoBody/2)+10) + "px solid transparent",
+            "border-top": (altoCentro-10) + "px solid #EEFFFF",
+            "bottom": (altoCentro-10) + "px"
         })
     }
 
-    $(window).on('resize', function(){
+    $(window).off().on('resize', function(){
         posicionElementos();
     })
 
